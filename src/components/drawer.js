@@ -7,47 +7,49 @@ import PersonIcon from '@mui/icons-material/Person';
 import EventIcon from '@mui/icons-material/Event';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import HelpIcon from '@mui/icons-material/Help';
-import { Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
     drawer: {
-        width: '190px'
+        width: '190px',
+        height: '100vh'
     }
 })
 
 
 
 function Drawer() {
-    
+
+    const navigate = useNavigate();
     const classes = useStyles();
 
     const itemsList = [{
         text: 'Dashboard',
         icon: <DataUsageIcon />,
-        onClick: () => console.log("HI")
+        onClick: () => navigate('/')
     }, {
         text: 'Students',
         icon: <PersonIcon />,
-        onClick: () => console.log("HI")
+        onClick: () => navigate('/students')
     }, {
         text: 'Events',
         icon: <EventIcon />,
-        onClick: () => console.log("HI")
+        onClick: () => navigate('/events')
     }, {
         text: 'Rankings',
         icon: <LeaderboardIcon />,
-        onClick: () => console.log("HI")
+        onClick: () => navigate('/rankings')
     }, {
         text: 'Help',
         icon: <HelpIcon />,
-        onClick: () => console.log("HI")
+        onClick: () => navigate('/help')
     }];
 
 
     return (
             <MUIDrawer variant="permanent" className={classes.drawer}>
                 <List>
-                    {itemsList.map((item, index) => {
+                    {itemsList.map((item) => {
                         const { text, icon, onClick} = item
                         return (
                             <ListItem button key={text} onClick={onClick}>

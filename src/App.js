@@ -1,14 +1,22 @@
 import './App.css';
 
-import Home from './components/pages/home';
-import About from './components/pages/about';
+import Dashboard from './components/pages/dashboard';
+import Students from './components/pages/students';
+import Events from './components/pages/events';
+import Rankings from './components/pages/rankings';
+import Help from './components/pages/help';
+
 import Drawer from './components/drawer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   container: {
-    display: 'flex'
+    display: 'flex',
+    width: '100vw',
+    height: '100vh',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 
@@ -19,11 +27,14 @@ function App() {
   return (
 
     <div className={classes.container}>
-      <Drawer />
       <BrowserRouter>
+        <Drawer />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/students" element={<Students />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/rankings" element={<Rankings />} />
+          <Route path="/help" element={<Help />} />
         </Routes>
       </BrowserRouter>
 

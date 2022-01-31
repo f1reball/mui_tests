@@ -5,6 +5,7 @@ import Students from './components/pages/students';
 import Events from './components/pages/events';
 import Rankings from './components/pages/rankings';
 import Help from './components/pages/help';
+import Error from './components/pages/error';
 
 import Drawer from './components/drawer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
     width: '100vw',
     height: '100vh',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   }
 })
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/rankings" element={<Rankings />} />
           <Route path="/help" element={<Help />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
 

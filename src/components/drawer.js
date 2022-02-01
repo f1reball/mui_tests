@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer as MUIDrawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import { Drawer as MUIDrawer, List, ListItem, ListItemText, ListItemIcon, AppBar, Toolbar, Typography, Divider} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 import DataUsageIcon from '@mui/icons-material/DataUsage';
@@ -7,12 +7,14 @@ import PersonIcon from '@mui/icons-material/Person';
 import EventIcon from '@mui/icons-material/Event';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import HelpIcon from '@mui/icons-material/Help';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 const useStyles = makeStyles({
     drawer: {
-        width: '190px',
-        height: '100vh'
+        display: 'flex',
+        flexDirection: 'column',
+        width: '220px'
     }
 })
 
@@ -21,45 +23,65 @@ const useStyles = makeStyles({
 function Drawer() {
 
     const navigate = useNavigate();
+    const { pathname } = useLocation();
     const classes = useStyles();
 
     const itemsList = [{
         text: 'Dashboard',
         icon: <DataUsageIcon />,
+        destination: '/',
         onClick: () => navigate('/')
     }, {
         text: 'Students',
         icon: <PersonIcon />,
+        destination: '/students',
         onClick: () => navigate('/students')
     }, {
         text: 'Events',
         icon: <EventIcon />,
+        destination: '/events',
         onClick: () => navigate('/events')
     }, {
         text: 'Rankings',
         icon: <LeaderboardIcon />,
+        destination: '/rankings',
         onClick: () => navigate('/rankings')
     }, {
         text: 'Help',
         icon: <HelpIcon />,
+        destination: '/help',
         onClick: () => navigate('/help')
     }];
 
 
     return (
-            <MUIDrawer variant="permanent" className={classes.drawer}>
-                <List>
+        <div>
+
+
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div">
+            Orienteering Tracking
+          </Typography>
+        </Toolbar>
+        </AppBar>
+
+            <MUIDrawer variant="permanent" >
+                <Toolbar />
+                <List className={classes.drawer} >
                     {itemsList.map((item) => {
-                        const { text, icon, onClick} = item
+                        const { text, icon, destination, onClick} = item
                         return (
-                            <ListItem button key={text} onClick={onClick}>
+                            <ListItem button key={text} onClick={onClick} selected={destination === pathname} >
                                     {icon && <ListItemIcon >{icon}</ListItemIcon>}
                                     <ListItemText primary={text} />
                                 </ListItem>
                         );
                         })}
                 </List>
+                <Divider />
             </MUIDrawer>
+        </div>
     )
 }
 

@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         color: '#cccccc',
     },
     thinner: {
-        fontWeight: '400'
+        fontWeight: '400',
+        fontSize: '20px'
     }
 })
 

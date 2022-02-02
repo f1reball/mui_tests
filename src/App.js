@@ -21,7 +21,8 @@ const useStyles = makeStyles({
     width: 'calc(100vw - 220px)',
     float: 'right',
     position: 'relative',
-    marginTop: '64px'
+    marginTop: '64px',
+    //background: '#121212'
   }, 
 })
 

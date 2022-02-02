@@ -16,9 +16,6 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         width: '220px'
     },
-    wrapper: {
-        display: 'flex'
-    }
 })
 
 
@@ -61,7 +58,7 @@ function Drawer() {
         <div>
 
 
-        <AppBar position="fixed" className={classes.wrapper} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
             Orienteering Tracking

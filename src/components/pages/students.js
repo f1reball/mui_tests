@@ -9,9 +9,10 @@ import Paper from '@mui/material/Paper';
 
 
 
-class Students extends Component {
+function Students(props) {
 
-    render() {
+        console.log(props.studentList);
+
         function createData(name, calories, fat, carbs, protein) {
             return { name, calories, fat, carbs, protein };
         }
@@ -43,7 +44,6 @@ class Students extends Component {
             createData('Cupcake', 305, 3.7, 67, 4.3),
             createData('Gingerbread', 356, 16.0, 49, 3.9),
         ];
-        console.log(this.props.studentList);
 
         return (
             <TableContainer component={Paper} sx={{ minWidth: '80%', maxWidth: '80%', minHeight: '100px', maxHeight: '70%'}}>
@@ -60,7 +60,6 @@ class Students extends Component {
                     <TableBody>
                         {rows.map((row) => (
                             <TableRow
-                                key={row.name}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
@@ -77,5 +76,4 @@ class Students extends Component {
             </TableContainer>
         );
     }
-}
 export default Students;

@@ -58,7 +58,6 @@ function App() {
         nameID.push(p);
         nameArray.push(p);
       });
-      console.log(nameArray);
       setStudents(nameArray);
     })
   }

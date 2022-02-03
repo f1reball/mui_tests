@@ -15,13 +15,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const useStyles = makeStyles({
   container: {
     display: 'flex',
-    height: 'calc(100vh - 64px)',
+    height: '100vh',
     justifyContent: 'center',
     alignItems: 'center',
     width: 'calc(100vw - 220px)',
     float: 'right',
     position: 'relative',
-    marginTop: '64px',
     //background: '#121212'
   }, 
 })

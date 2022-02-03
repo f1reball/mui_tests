@@ -57,17 +57,12 @@ function Drawer() {
     return (
         <div>
 
-
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Orienteering Tracking
-          </Typography>
-        </Toolbar>
-        </AppBar>
-
             <MUIDrawer variant="permanent" >
-                <Toolbar />
+                <Toolbar>
+                    <Typography>
+                        Orienteering Tracking
+                    </Typography>
+                </Toolbar>
                 <List className={classes.drawer} >
                     {itemsList.map((item) => {
                         const { text, icon, destination, onClick} = item

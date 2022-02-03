@@ -18,11 +18,11 @@ function Students(props) {
                 <Table stickyHeader aria-label="Student Table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>ID</TableCell>
                             <TableCell>First Name</TableCell>
                             <TableCell>Last Name</TableCell>
                             <TableCell>Year</TableCell>
                             <TableCell>Division</TableCell>
+                            <TableCell>ID</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -30,13 +30,11 @@ function Students(props) {
                             <TableRow
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell component="th" scope="row">
-                                    {row.ID}
-                                </TableCell>
                                 <TableCell >{row.FirstName}</TableCell>
                                 <TableCell >{row.LastName}</TableCell>
                                 <TableCell >{row.Year}</TableCell>
                                 <TableCell >{row.Division}</TableCell>
+                                <TableCell>{row.ID}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
